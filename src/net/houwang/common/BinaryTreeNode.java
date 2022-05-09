@@ -24,4 +24,8 @@ class BinaryTreeNode<ValueType> {
     public ValueType value() {
         return this.value;
     }
+
+    public boolean hasChildren() {
+        return left != null || right != null;
+    }
 };

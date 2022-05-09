@@ -18,10 +18,12 @@ class MerkleTree<Key, Value> extends Dictionary<Key, Value> {
 
     @Override
     public int size() {
+        return this.valueMap.size();
     }
 
     @Override
     public boolean isEmpty() {
+        return valueMap.isEmpty();
     }
 
     private class IterableEnumeration<T> implements Enumeration<T> {
@@ -67,5 +69,6 @@ class MerkleTree<Key, Value> extends Dictionary<Key, Value> {
 
     @Override
     public Value remove(Object key) {
+        // do not support remove
     }
 }
