@@ -5,15 +5,20 @@ import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
-import net.houwang.common.BinaryTreeNode;
+import net.houwang.common.TreeNode;
+import static net.houwang.MerkleTreeConfigs;
 
 class MerkleTree<Key, Value> extends Dictionary<Key, Value> {
     private Map<Object, Object> valueMap;
-    private BinaryTreeNode<Integer> root;
+    private TreeNode<Integer> root;
 
-    public MerkleTree() {
+    public MerkleTree(int childrenLimit) {
         this.valueMap = new ConcurrentHashMap<Key, Value>();
-        this.root = new BinaryTreeNode<Integer>(-1);
+        this.root = createNode(-1);
+    }
+
+    private TreeNode createNode(int value) {
+        return new TreeNode<Integer>(value, MerkleTreeConfigs.MAX_TREE_NODE_CHIDLREN);
     }
 
     @Override
@@ -61,6 +66,7 @@ class MerkleTree<Key, Value> extends Dictionary<Key, Value> {
 
     @Override
     public Value get(Object key) {
+        
     }
 
     @Override
